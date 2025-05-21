@@ -45,6 +45,7 @@ As tabelas foram criadas e populadas com dados fictícios utilizando o script SQ
 ### a) Alunos que tiveram aulas em SC com instrutores de curso diferente e pontuação > 70
 
 🎯 Objetivo: identificar conflitos positivos: estudantes que tiveram bons desempenhos (nota > 70) em aulas com instrutores de outra área, no estado de Santa Catarina.
+
 🧠 Lógica:
 Juntamos todas as tabelas para cruzar as informações.
 Filtramos por estado e diferença entre o curso do aluno e o curso do instrutor.
@@ -63,6 +64,7 @@ WHERE a.estado = 'Santa Catarina'
 
 ### b) Média de pontuação por aluno e instrutor (Joinville)
 🎯 Objetivo: descobrir qual aluno tem melhor média de notas com instrutores de cada curso em Joinville.
+
 🧠 Lógica:
 Filtramos apenas aulas ocorridas em Joinville.
 Agrupamos por aluno e curso do instrutor.
@@ -80,6 +82,7 @@ GROUP BY e.nome, i.curso;
 
 ### c) Rollup por instrutor (continuação da b)
 🎯 Objetivo: gerar subtotais por curso do instrutor, além das médias individuais de aluno + instrutor.
+
 🧠 Lógica:
 O ROLLUP cria:
 Nível 1: aluno + curso
@@ -99,6 +102,7 @@ GROUP BY ROLLUP (i.curso, e.nome);
 
 ### d) Média de notas por curso do estudante
 🎯 Objetivo: medir o desempenho médio por área de formação dos estudantes.
+
 🧠 Lógica:
 Agrupamos por curso do aluno.
 Extraímos a média de notas em todas as aulas que ele frequentou.
@@ -112,6 +116,7 @@ GROUP BY e.curso;
 
 ### e) Drill-down por curso do estudante e do instrutor
 🎯 Objetivo: analisar detalhadamente as interações entre cursos dos alunos e dos professores.
+
 🧠 Lógica:
 A ideia de "drill-down" é aprofundar a análise da d).
 Agora observamos o cruzamento: curso do estudante X curso do instrutor.
@@ -127,6 +132,7 @@ GROUP BY e.curso, i.curso;
 
 ### f) ROLLUP nas regiões geográficas
 🎯 Objetivo: avaliar a média de notas por localização, de forma hierárquica.
+
 🧠 Lógica:
 Agrupa primeiro por instituição, depois cidade, depois estado.
 Cria:
@@ -144,6 +150,7 @@ GROUP BY ROLLUP (a.estado, a.cidade, a.instituicao);
 
 ### g) CUBO de médias
 🎯 Objetivo: gerar todas as combinações possíveis de agregações por localização.
+
 🧠 Lógica:
 O CUBE é uma análise multidimensional total.
 Permite ver:
