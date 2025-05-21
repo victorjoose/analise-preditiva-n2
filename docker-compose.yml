@@ -7,6 +7,7 @@ services:
     ports:
       - "5433:5432" 
     environment:
+      POSTGRES_DB: analise-preditiva
       POSTGRES_PASSWORD: "admin123"
     volumes:
       - ./data:/var/lib/postgresql/data
