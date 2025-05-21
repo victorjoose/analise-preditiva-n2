@@ -95,8 +95,8 @@ Scripts disponíveis em `questao-2-e-3/`.
 ## 🧠 Observações Finais
 
 Para facilitar a execução dos scripts SQL, foram criado dois shell scripts.
-## copiar_arquivos.sh
-## executar_scripts.sh
+### copiar_arquivos.sh
+### executar_scripts.sh
 
 O script copiar_arquivos.sh é responsável por copiar arquivos do seu repositório local para dentro do container Docker onde está rodando o PostgreSQL.
 
