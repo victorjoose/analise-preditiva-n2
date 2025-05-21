@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  postgres:
+    container_name: analise-preditiva
+    image: postgres:latest
+    ports:
+      - "5433:5432" 
+    environment:
+      POSTGRES_PASSWORD: "admin123"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+
+volumes:
+  data:
+  mysql:
